@@ -72,46 +72,34 @@ img {
   background-color: #24382c;
   color: #ffffff;
   padding: 15px 0;
-}
-
-.site-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  text-align: center;
 }
 
 .logo {
-  display: flex;
-  align-items: center;
+  display: inline-block;
   color: #ffffff;
   text-decoration: none;
   font-family: 'Fraunces', Georgia, serif;
   font-size: 20px;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .logo img {
   width: 36px;
+  vertical-align: middle;
   margin-right: 10px;
-}
-
-#menu-btn {
-  display: none;
-  background: none;
-  border: 1px solid #ffffff;
-  color: #ffffff;
-  padding: 6px 14px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 15px;
 }
 
 #nav-list {
   list-style: none;
-  display: flex;
-  gap: 25px;
   margin: 0;
   padding: 0;
+}
+
+#nav-list li {
+  display: inline-block;
+  margin: 0 12px;
 }
 
 #nav-list a {
@@ -369,30 +357,9 @@ legend {
   border: 0;
 }
 
-/* ---------- Mobile styles ---------- */
-@media (max-width: 700px) {
-  #menu-btn {
-    display: inline-block;
-  }
+/* Note: this stylesheet does not use @media queries (responsive
+   breakpoints) yet. On a narrow screen the nav links and stat boxes will
+   simply wrap onto more than one line, which is normal default browser
+   behaviour. Making the layout adapt more neatly to small screens is
+   planned for a later part of this project. */
 
-  #nav-list {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    margin-top: 15px;
-    gap: 12px;
-  }
-
-  #nav-list.show {
-    display: flex;
-  }
-
-  .stats .stat-box {
-    width: 45%;
-  }
-
-  .hero h1 {
-    font-size: 26px;
-  }
-}
