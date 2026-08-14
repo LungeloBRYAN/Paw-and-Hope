@@ -52,13 +52,15 @@ in particular, in the adaptive Enquiry form.
   an adopter.
 - **Contact** (`contact.html`) — two locations (main shelter and monthly
   mobile adoption-day site), an opening-hours table, and a contact form.
-- The same header navigation and footer appear on every page. A small
-  JavaScript file (`js/script.js`) handles the mobile menu button,
-  auto-updates the footer year, and shows a simple thank-you message when
-  a form is submitted (there is no backend yet — that is planned for a
-  later part of this project).
-- Basic responsive design: the layout adjusts for smaller screens using
-  one media query in `css/style.css`.
+- The same header navigation and footer appear on every page, built with
+  semantic HTML5 and basic CSS (colours, fonts, spacing, simple
+  `inline-block` layout — no CSS Grid or Flexbox yet).
+- **No JavaScript yet, on purpose.** This project's brief covers HTML in
+  Part 1, with CSS refined and JavaScript added in Parts 2 and 3. The
+  `/js` folder exists (per the required file structure) with a placeholder
+  file, but nothing is wired up to the pages yet. This also means the
+  forms don't submit anywhere yet, and the nav menu doesn't collapse on
+  small screens yet — both are expected next steps, not bugs.
 
 ## Timeline and Milestones
 | Stage | Target Window | Milestone |
@@ -128,10 +130,24 @@ paws-and-hope-website/
 All notable changes to this project are recorded below, newest first, and
 correspond to the commit history in this repository.
 
+### [0.1.1] — Simplified to match Part 1 scope
+- **Removed:** Mobile menu toggle button and all JavaScript-driven
+  interactivity. This project's own timeline (see the Website Project
+  Proposal) puts JavaScript in Parts 2 and 3, so `js/script.js` is now a
+  placeholder file with a comment explaining what's planned, and no page
+  currently links to it.
+- **Changed:** Header and navigation now use simple `inline-block`
+  elements instead of Flexbox, so the CSS matches material covered so far.
+- **Removed:** The `@media` responsive breakpoint, since it existed only
+  to support the JavaScript menu toggle. On a narrow screen the nav links
+  and stat boxes now simply wrap onto more than one line — expected
+  default browser behaviour, not a bug.
+- **Changed:** Footer copyright year is now static text instead of being
+  set by JavaScript.
+
 ### [0.1.0] — Part 1 submission
 - **Added:** Global stylesheet (`css/style.css`) with the site's colour
-  palette and typography, basic layout rules, and one media query for
-  smaller screens.
+  palette and typography and basic layout rules.
 - **Added:** Original SVG artwork — logo/favicon, hero illustration, four
   service icons, and three example-animal avatar illustrations — created
   in-house to avoid any third-party licensing risk.
@@ -144,8 +160,6 @@ correspond to the commit history in this repository.
   / sponsor enquiries, using radio buttons plus a shared message field.
 - **Added:** `contact.html` — two locations, opening-hours table, and a
   contact form.
-- **Added:** `js/script.js` — mobile menu toggle, footer year update, and
-  a simple confirmation message on form submit.
 - **Fixed:** A CSS selector bug where `.stats div` was accidentally
   matching the page's `.container` wrapper as well as the four stat boxes,
   causing them to overlap instead of sitting side by side. Fixed by giving
