@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Involved — Enquiry Form | Paws &amp; Hope Animal Rescue</title>
+  <meta name="description" content="Enquire about adopting, fostering, volunteering or sponsoring with Paws & Hope Animal Rescue.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo-mark.svg" alt="Paws and Hope logo">
+        Paws &amp; Hope
+      </a>
+      <button id="menu-btn">Menu</button>
+      <nav>
+        <ul id="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="enquiry.html">Enquiry</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="page-banner">
+      <h1>Get Involved</h1>
+      <p>One form, four ways to help. Choose what fits you and we'll follow up within two working days.</p>
+    </div>
+
+    <div class="container section">
+
+      <!--
+        This form is used by everyone who wants to help: people wanting to
+        adopt, foster, volunteer, or sponsor/donate. The radio buttons let
+        the visitor tell us which one applies to them, and the message box
+        below lets them add the details that matter for their choice (for
+        example, what kind of pet they'd like to adopt, or which days they
+        are free to volunteer).
+
+        There is no server to send this form to yet, so js/script.js just
+        shows a thank-you message for now. Real submission handling will
+        be added in a later part of this project.
+      -->
+      <form id="enquiry-form">
+
+        <fieldset>
+          <legend>I'm interested in...</legend>
+          <label class="radio-option">
+            <input type="radio" name="enquiry-type" value="adopt" checked>
+            Adopting an animal
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="enquiry-type" value="foster">
+            Fostering an animal
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="enquiry-type" value="volunteer">
+            Volunteering my time
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="enquiry-type" value="sponsor">
+            Sponsoring / donating
+          </label>
+        </fieldset>
+
+        <label for="full-name">Full name</label>
+        <input type="text" id="full-name" name="full-name" required>
+
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" name="phone">
+
+        <label for="message">Tell us more</label>
+        <textarea id="message" name="message" rows="5" placeholder="E.g. if adopting: what kind of pet and your home type. If volunteering: your availability. If sponsoring: how you'd like to help."></textarea>
+
+        <label class="checkbox-option">
+          <input type="checkbox" id="consent" name="consent" required>
+          I consent to Paws &amp; Hope contacting me about this enquiry.
+        </label>
+
+        <br><br>
+        <button type="submit" class="btn">Submit Enquiry</button>
+      </form>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <h2>Quick Links</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="enquiry.html">Get Involved</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <h2>Visit or Contact</h2>
+      <address>
+        142 Bryanston Drive, Bryanston, Johannesburg, 2191<br>
+        <a href="tel:+27115550142">011 555 0142</a><br>
+        <a href="mailto:hello@pawsandhope.org.za">hello@pawsandhope.org.za</a>
+      </address>
+      <p class="footer-bottom">&copy; <span id="year">2026</span> Paws &amp; Hope Animal Rescue &middot; Registered Non-Profit Organisation</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
