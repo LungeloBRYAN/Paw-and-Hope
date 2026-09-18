@@ -5,25 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us | Paws &amp; Hope Animal Rescue</title>
   <meta name="description" content="Learn about Paws & Hope Animal Rescue's history, mission, vision and the volunteer team.">
-
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
-
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- ===== Header and navigation menu (same on every page - see index.html for comments) ===== -->
   <header class="site-header">
     <div class="container">
       <a href="index.html" class="logo">
         <img src="images/logo-mark.svg" alt="Paws and Hope logo">
         Paws &amp; Hope
       </a>
-      <nav>
-        <ul id="nav-list">
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="enquiry.html">Enquiry</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -35,84 +32,105 @@
   <main>
 
     <div class="page-banner">
-      <h1>About Paws &amp; Hope</h1>
-      <p>A community-built non-profit, run by people who simply could not walk past an animal in need.</p>
+      <div class="container">
+        <h1>About Paws &amp; Hope</h1>
+        <p>A community-built non-profit, run by people who simply could not walk past an animal in need.</p>
+      </div>
     </div>
 
     <div class="container section">
+      <div class="content-layout">
 
-      <!-- History -->
-      <h2>Our History</h2>
-      <p>Paws &amp; Hope Animal Rescue was founded in 2015 by a small group of volunteer foster carers who kept encountering the same problem: far more abandoned and at-risk animals than any single shelter in the area could handle. What began as an informal WhatsApp group coordinating foster placements has since grown into a registered non-profit organisation running a small shelter facility, an active network of foster homes, monthly mobile adoption days, and a community sterilisation drive.</p>
-      <p>Today, Paws &amp; Hope is run by a small core team supported by more than 120 volunteers, and works closely with local vets, pet food suppliers and corporate sponsors to keep our programmes running.</p>
+        <div>
+          <h2>Our History</h2>
+          <p>Paws &amp; Hope Animal Rescue was founded in 2015 by a small group of volunteer foster carers who kept encountering the same problem: far more abandoned and at-risk animals than any single shelter in the area could handle. What began as an informal WhatsApp group coordinating foster placements has since grown into a registered non-profit organisation running a small shelter facility, an active network of foster homes, monthly mobile adoption days, and a community sterilisation drive.</p>
+          <p>Today, Paws &amp; Hope is run by a small core team supported by more than 120 volunteers, and works closely with local vets, pet food suppliers and corporate sponsors to keep our programmes running.</p>
 
-      <!-- Mission and vision -->
-      <h2>Mission &amp; Vision</h2>
-      <p><strong>Mission:</strong> To rescue, rehabilitate and rehome abandoned and at-risk companion animals, and to reduce animal homelessness through community education and accessible sterilisation.</p>
-      <p><strong>Vision:</strong> A community where every companion animal has a safe, loving, permanent home.</p>
-      <p>
-        <span class="tag">Rescue</span>
-        <span class="tag">Rehabilitation</span>
-        <span class="tag">Responsible Rehoming</span>
-        <span class="tag">Community Education</span>
-        <span class="tag">Sterilisation Outreach</span>
-      </p>
+          <h2>Mission &amp; Vision</h2>
+          <p><strong>Mission:</strong> To rescue, rehabilitate and rehome abandoned and at-risk companion animals, and to reduce animal homelessness through community education and accessible sterilisation.</p>
+          <p><strong>Vision:</strong> A community where every companion animal has a safe, loving, permanent home.</p>
+          <ul class="tag-list">
+            <li class="tag">Rescue</li>
+            <li class="tag">Rehabilitation</li>
+            <li class="tag">Responsible Rehoming</li>
+            <li class="tag">Community Education</li>
+            <li class="tag">Sterilisation Outreach</li>
+          </ul>
 
-      <!-- Team -->
-      <h2>Meet the Team</h2>
-      <p>Paws &amp; Hope is powered almost entirely by volunteers who give their evenings and weekends to animals that cannot yet speak for themselves.</p>
+          <h2 style="margin-top:var(--space-4);">Meet the Team</h2>
+          <p>Paws &amp; Hope is powered almost entirely by volunteers who give their evenings and weekends to animals that cannot yet speak for themselves.</p>
 
-      <div class="card">
-        <h3>Lerato Dlamini</h3>
-        <p><em>Founder &amp; Shelter Manager</em></p>
-        <p>Oversees day-to-day shelter operations and leads the foster-carer network.</p>
+          <div class="card-grid">
+            <div class="card">
+              <h3>Lerato Dlamini</h3>
+              <p class="meta">Founder &amp; Shelter Manager</p>
+              <p>Oversees day-to-day shelter operations and leads the foster-carer network.</p>
+            </div>
+            <div class="card">
+              <h3>Sipho Nkosi</h3>
+              <p class="meta">Volunteer Coordinator</p>
+              <p>Matches new volunteers to roles and runs monthly mobile adoption days.</p>
+            </div>
+            <div class="card">
+              <h3>Dr Amina Patel</h3>
+              <p class="meta">Consulting Veterinarian</p>
+              <p>Leads the community sterilisation drive and in-shelter veterinary care.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="sidebar">
+          <div class="card">
+            <h2>Quick Facts</h2>
+            <ul class="content-list">
+              <li>Founded in 2015</li>
+              <li>Registered Non-Profit Organisation</li>
+              <li>120+ active volunteers</li>
+              <li>45 partner foster homes</li>
+              <li>Monthly mobile adoption days</li>
+            </ul>
+            <a href="enquiry.html" class="btn btn-primary" style="display:block;text-align:center;margin-top:var(--space-2);">Get Involved</a>
+          </div>
+        </aside>
+
       </div>
-
-      <div class="card">
-        <h3>Sipho Nkosi</h3>
-        <p><em>Volunteer Coordinator</em></p>
-        <p>Matches new volunteers to roles and runs monthly mobile adoption days.</p>
-      </div>
-
-      <div class="card">
-        <h3>Dr Amina Patel</h3>
-        <p><em>Consulting Veterinarian</em></p>
-        <p>Leads the community sterilisation drive and in-shelter veterinary care.</p>
-      </div>
-
-      <!-- Quick facts -->
-      <h2>Quick Facts</h2>
-      <ul>
-        <li>Founded in 2015</li>
-        <li>Registered Non-Profit Organisation</li>
-        <li>120+ active volunteers</li>
-        <li>45 partner foster homes</li>
-        <li>Monthly mobile adoption days</li>
-      </ul>
-      <a href="enquiry.html" class="btn">Get Involved</a>
-
     </div>
 
   </main>
 
-  <!-- ===== Footer (same on every page - see index.html for comments) ===== -->
   <footer class="site-footer">
     <div class="container">
-      <h2>Quick Links</h2>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Our Services</a></li>
-        <li><a href="enquiry.html">Get Involved</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <h2>Visit or Contact</h2>
-      <address>
-        142 Bryanston Drive, Bryanston, Johannesburg, 2191<br>
-        <a href="tel:+27115550142">011 555 0142</a><br>
-        <a href="mailto:hello@pawsandhope.org.za">hello@pawsandhope.org.za</a>
-      </address>
-      <p class="footer-bottom">&copy; 2026 Paws &amp; Hope Animal Rescue &middot; Registered Non-Profit Organisation</p>
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="logo">
+            <img src="images/logo-mark.svg" alt="">
+            Paws &amp; Hope
+          </div>
+          <p class="footer-blurb">Rescuing, rehabilitating and rehoming companion animals in Johannesburg since 2015.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <h2 class="footer-heading">Quick Links</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="enquiry.html">Get Involved</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer-contact">
+          <h2 class="footer-heading">Visit or Contact</h2>
+          <address>
+            142 Bryanston Drive, Bryanston, Johannesburg, 2191<br>
+            <a href="tel:+27115550142">011 555 0142</a><br>
+            <a href="mailto:hello@pawsandhope.org.za">hello@pawsandhope.org.za</a>
+          </address>
+        </div>
+      </div>
+      <p class="footer-bottom">
+        <span>&copy; 2026 Paws &amp; Hope Animal Rescue &middot; Registered Non-Profit Organisation</span>
+        <span>Website built as an academic Portfolio of Evidence, Part 2</span>
+      </p>
     </div>
   </footer>
 

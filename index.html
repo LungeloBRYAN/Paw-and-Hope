@@ -5,28 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paws &amp; Hope Animal Rescue | Home</title>
   <meta name="description" content="Paws & Hope Animal Rescue is a Johannesburg-based non-profit that rescues, fosters and rehomes companion animals.">
-
-  <!-- Google Fonts: a serif font for headings, a sans-serif font for body text -->
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
-
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- ===== Header and navigation menu ===== -->
-  <!-- The same header appears on every page so the menu is always in the same place. -->
+  <!-- ===== Header and navigation menu (same on every page) ===== -->
   <header class="site-header">
     <div class="container">
       <a href="index.html" class="logo">
         <img src="images/logo-mark.svg" alt="Paws and Hope logo">
         Paws &amp; Hope
       </a>
-
-
-      <nav>
-        <ul id="nav-list">
-          <li><a href="index.html">Home</a></li>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="enquiry.html">Enquiry</a></li>
@@ -38,118 +32,137 @@
 
   <main>
 
-    <!-- ===== Hero section ===== -->
-    <!-- This is the first thing visitors see - our main message and two buttons. -->
+    <!-- ===== Hero ===== -->
     <section class="hero">
       <div class="container">
-        <h1>Every paw deserves a second chance.</h1>
-        <p>Paws &amp; Hope rescues, fosters and rehomes abandoned and at-risk companion animals across Johannesburg, and helps the community keep pets safe, healthy and loved.</p>
-        <a href="services.html" class="btn">Meet Our Animals</a>
-        <a href="enquiry.html" class="btn btn-outline">Get Involved</a>
-        <br>
-        <img src="images/hero-art.svg" alt="Illustration of a dog and a cat sitting side by side">
+        <div class="hero-copy">
+          <h1>Every paw deserves a second chance.</h1>
+          <p>Paws &amp; Hope rescues, fosters and rehomes abandoned and at-risk companion animals across Johannesburg, and helps the community keep pets safe, healthy and loved.</p>
+          <a href="services.html" class="btn btn-primary">Meet Our Animals</a>
+          <a href="enquiry.html" class="btn btn-outline">Get Involved</a>
+        </div>
+        <div class="hero-art-wrap">
+          <!--
+            Responsive image using <picture>: on narrow screens (max-width 37.5em)
+            a tighter-cropped version of the illustration is shown, so the subject
+            fills the space instead of leaving wasted sky/whitespace. On wider
+            screens the full illustration loads instead.
+          -->
+          <picture>
+            <source media="(max-width: 37.5em)" srcset="images/hero-art-mobile.svg">
+            <img src="images/hero-art.svg" alt="Illustration of a dog and a cat sitting side by side beneath the sun" width="560" height="480">
+          </picture>
+        </div>
       </div>
     </section>
 
     <!-- ===== Impact stats ===== -->
-    <section class="stats">
-      <div class="container">
-        <div class="stat-box"><span class="number">420+</span>Animals rescued</div>
-        <div class="stat-box"><span class="number">350+</span>Successful adoptions</div>
-        <div class="stat-box"><span class="number">45</span>Active foster homes</div>
-        <div class="stat-box"><span class="number">120+</span>Volunteers</div>
+    <section class="section">
+      <div class="container stats-grid">
+        <div><span class="number">420+</span>Animals rescued</div>
+        <div><span class="number">350+</span>Successful adoptions</div>
+        <div><span class="number">45</span>Active foster homes</div>
+        <div><span class="number">120+</span>Volunteers</div>
       </div>
     </section>
 
     <!-- ===== How adoption works ===== -->
-    <!-- We use an ordered list (<ol>) here because these steps happen in a set order. -->
     <section class="section section-alt">
       <div class="container">
-        <h2>How Adoption Works</h2>
+        <h2 style="text-align:center;">How Adoption Works</h2>
         <ol class="steps">
-          <li>
-            <h3>Enquire</h3>
-            <p>Tell us about your home and lifestyle using our enquiry form.</p>
-          </li>
-          <li>
-            <h3>Meet &amp; Greet</h3>
-            <p>Spend time with your potential new companion at the shelter or a foster home.</p>
-          </li>
-          <li>
-            <h3>Home Check</h3>
-            <p>A quick, friendly visit to make sure your home is a safe fit.</p>
-          </li>
-          <li>
-            <h3>Welcome Home</h3>
-            <p>Finalise the adoption and take your new best friend home.</p>
-          </li>
+          <li><div><h3>Enquire</h3><p>Tell us about your home and lifestyle using our enquiry form.</p></div></li>
+          <li><div><h3>Meet &amp; Greet</h3><p>Spend time with your potential new companion at the shelter or a foster home.</p></div></li>
+          <li><div><h3>Home Check</h3><p>A quick, friendly visit to make sure your home is a safe fit.</p></div></li>
+          <li><div><h3>Welcome Home</h3><p>Finalise the adoption and take your new best friend home.</p></div></li>
         </ol>
       </div>
     </section>
 
     <!-- ===== Animals looking for a home ===== -->
-    <!-- Each animal is its own <article> because each card is a stand-alone piece of content. -->
     <section class="section">
       <div class="container">
-        <h2>Animals Looking for a Home</h2>
-
-        <article class="card">
-          <img src="images/avatar-dog.svg" alt="Illustration of Buddy, a scruffy brown mixed-breed dog">
-          <h3>Buddy</h3>
-          <p>Mixed breed &middot; 3 years &middot; Male</p>
-          <p>Gentle and food-motivated, Buddy is house-trained and loves long walks. Good with children and other dogs.</p>
-          <a href="enquiry.html" class="btn">Enquire about Buddy</a>
-        </article>
-
-        <article class="card">
-          <img src="images/avatar-cat.svg" alt="Illustration of Nala, a ginger cat">
-          <h3>Nala</h3>
-          <p>Domestic Shorthair &middot; 1 year &middot; Female</p>
-          <p>Curious and affectionate once she trusts you. Nala would do best as an only cat with a patient owner.</p>
-          <a href="enquiry.html" class="btn">Enquire about Nala</a>
-        </article>
-
-        <article class="card">
-          <img src="images/avatar-rabbit.svg" alt="Illustration of Thistle, a grey rabbit">
-          <h3>Thistle</h3>
-          <p>Rabbit &middot; 8 months &middot; Female</p>
-          <p>Litter-trained and sociable, Thistle needs a secure hutch or bunny-proofed indoor space and daily attention.</p>
-          <a href="enquiry.html" class="btn">Enquire about Thistle</a>
-        </article>
+        <h2 style="text-align:center;">Animals Looking for a Home</h2>
+        <div class="card-grid">
+          <article class="card">
+            <img src="images/avatar-dog.svg"
+                 srcset="images/avatar-dog.svg 400w"
+                 sizes="(max-width: 37.5em) 90vw, (max-width: 56.25em) 45vw, 30vw"
+                 alt="Illustration of Buddy, a scruffy brown mixed-breed dog" width="400" height="190">
+            <h3>Buddy</h3>
+            <p class="meta">Mixed breed &middot; 3 years &middot; Male</p>
+            <p>Gentle and food-motivated, Buddy is house-trained and loves long walks. Good with children and other dogs.</p>
+            <a href="enquiry.html" class="btn btn-dark">Enquire about Buddy</a>
+          </article>
+          <article class="card">
+            <img src="images/avatar-cat.svg"
+                 srcset="images/avatar-cat.svg 400w"
+                 sizes="(max-width: 37.5em) 90vw, (max-width: 56.25em) 45vw, 30vw"
+                 alt="Illustration of Nala, a ginger cat" width="400" height="190">
+            <h3>Nala</h3>
+            <p class="meta">Domestic Shorthair &middot; 1 year &middot; Female</p>
+            <p>Curious and affectionate once she trusts you. Nala would do best as an only cat with a patient owner.</p>
+            <a href="enquiry.html" class="btn btn-dark">Enquire about Nala</a>
+          </article>
+          <article class="card">
+            <img src="images/avatar-rabbit.svg"
+                 srcset="images/avatar-rabbit.svg 400w"
+                 sizes="(max-width: 37.5em) 90vw, (max-width: 56.25em) 45vw, 30vw"
+                 alt="Illustration of Thistle, a grey rabbit" width="400" height="190">
+            <h3>Thistle</h3>
+            <p class="meta">Rabbit &middot; 8 months &middot; Female</p>
+            <p>Litter-trained and sociable, Thistle needs a secure hutch or bunny-proofed indoor space and daily attention.</p>
+            <a href="enquiry.html" class="btn btn-dark">Enquire about Thistle</a>
+          </article>
+        </div>
       </div>
     </section>
 
     <!-- ===== Call to action banner ===== -->
-    <section class="hero">
+    <section class="section cta-banner">
       <div class="container">
-        <h2 style="color:#ffffff;">Ready to change a life?</h2>
+        <h2>Ready to change a life?</h2>
         <p>Whether you can adopt, foster, volunteer or sponsor, there is a place for you at Paws &amp; Hope.</p>
-        <a href="enquiry.html" class="btn">Get Involved Today</a>
+        <a href="enquiry.html" class="btn btn-primary">Get Involved Today</a>
       </div>
     </section>
 
   </main>
 
-  <!-- ===== Footer ===== -->
+  <!-- ===== Footer (same on every page) ===== -->
   <footer class="site-footer">
     <div class="container">
-      <h2>Quick Links</h2>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Our Services</a></li>
-        <li><a href="enquiry.html">Get Involved</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-
-      <h2>Visit or Contact</h2>
-      <address>
-        142 Bryanston Drive, Bryanston, Johannesburg, 2191<br>
-        <a href="tel:+27115550142">011 555 0142</a><br>
-        <a href="mailto:hello@pawsandhope.org.za">hello@pawsandhope.org.za</a>
-      </address>
-
-      <p class="footer-bottom">&copy; 2026 Paws &amp; Hope Animal Rescue &middot; Registered Non-Profit Organisation</p>
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="logo">
+            <img src="images/logo-mark.svg" alt="">
+            Paws &amp; Hope
+          </div>
+          <p class="footer-blurb">Rescuing, rehabilitating and rehoming companion animals in Johannesburg since 2015.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <h2 class="footer-heading">Quick Links</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="enquiry.html">Get Involved</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer-contact">
+          <h2 class="footer-heading">Visit or Contact</h2>
+          <address>
+            142 Bryanston Drive, Bryanston, Johannesburg, 2191<br>
+            <a href="tel:+27115550142">011 555 0142</a><br>
+            <a href="mailto:hello@pawsandhope.org.za">hello@pawsandhope.org.za</a>
+          </address>
+        </div>
+      </div>
+      <p class="footer-bottom">
+        <span>&copy; 2026 Paws &amp; Hope Animal Rescue &middot; Registered Non-Profit Organisation</span>
+        <span>Website built as an academic Portfolio of Evidence, Part 2</span>
+      </p>
     </div>
   </footer>
 
