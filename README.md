@@ -1,117 +1,134 @@
-# Paws \& Hope Animal Rescue — Website
+# Paws & Hope Animal Rescue — Website
 
 ## Project Title
-
-**Paws \& Hope Animal Rescue** — a 5-page brochure website built for Part 1 of
-the Web Development Portfolio of Evidence (PoE).
+**Paws & Hope Animal Rescue** — a 5-page brochure website built for the Web
+Development Portfolio of Evidence (PoE). This repository now covers **Part 1
+(foundation & HTML)** and **Part 2 (CSS styling & responsive design)**.
 
 ## Student Information
-
-|Field|Detail|
-|-|-|
-|Student name|Lungelo Mabindisa |
-|Student number|ST10503170|
-|Group|2|
-|Subject|Web Development \[WEDE5020]|
-|Institution|Rosebank International Braamfontein|
-
-## 
-
-## 
+| Field | Detail |
+|---|---|
+| Student name | Lungelo Mabindisa |
+| Student number | ST10503170 |
+| Group | 2 |
+| Subject | Web Development — WEDE5020 |
+| Institution | Rosebank College — International Braamfontein Campus |
 
 ## Project Overview
-
-Paws \& Hope Animal Rescue is a (hypothetical, realistically researched)
+Paws & Hope Animal Rescue is a (hypothetical, realistically researched)
 Johannesburg-based non-profit organisation that rescues, fosters and
 rehomes abandoned and at-risk companion animals. This repository contains
-the static HTML/CSS/JavaScript website built for the organisation, developed
-against a Website Project Proposal that was researched and approved before
-any code was written (see `/docs` and the submitted proposal document for
-the full proposal, including the second, non-selected proposal for a small
-business, Sunrise Bakehouse).
+the static HTML/CSS website built for the organisation, developed against a
+Website Project Proposal that was researched and approved before any code
+was written (see the submitted proposal document for the full proposal,
+including the second, non-selected proposal for a small business, Sunrise
+Bakehouse).
 
 The site was designed to serve three real audiences the organisation
 depends on: **prospective adopters**, **volunteers and foster carers**, and
-**donors/sponsors** — reflected directly in the site's structure and,
-in particular, in the adaptive Enquiry form.
+**donors/sponsors** — reflected directly in the site's structure and, in
+particular, in the Enquiry form.
 
-
-
-
+## Part 1 Feedback & How It Was Addressed
+Part 1 was marked at **96/100**, with the overall lecturer comment
+*"Excellent work!!"*. No specific line-item corrections were noted in the
+feedback beyond the mark itself, so no content or structural changes were
+required going into Part 2. Part 2 work therefore proceeded directly to the
+CSS styling and responsive design brief, building on the Part 1 HTML
+unchanged apart from the layout markup adjustments described in the
+Changelog below (needed to support the new CSS Grid/Flexbox layout).
 
 ## Website Goals and Objectives
-
-|Goal|KPI|
-|-|-|
-|Increase adoption enquiries for animals in shelter/foster care|Completed adoption enquiries submitted per month|
-|Recruit new volunteers and foster carers|Volunteer/foster sign-ups submitted per month|
-|Grow individual and corporate donations/sponsorships|Click-through rate on donation CTAs; sponsor enquiries|
-|Raise awareness of responsible pet ownership \& sterilisation|Page views/time on Services page; newsletter sign-ups|
-
-## 
-
-## 
+| Goal | KPI |
+|---|---|
+| Increase adoption enquiries for animals in shelter/foster care | Completed adoption enquiries submitted per month |
+| Recruit new volunteers and foster carers | Volunteer/foster sign-ups submitted per month |
+| Grow individual and corporate donations/sponsorships | Click-through rate on donation CTAs; sponsor enquiries |
+| Raise awareness of responsible pet ownership & sterilisation | Page views/time on Services page; newsletter sign-ups |
 
 ## Key Features and Functionality
+- **Home** (`index.html`) — hero introduction (with an art-directed
+  responsive image), impact statistics, a numbered "how adoption works"
+  list, and example animal profile cards.
+- **About** (`about.html`) — organisation history, mission/vision, and team.
+- **Services** (`services.html`) — adoption process, foster programme, and a
+  community outreach/sterilisation schedule (genuine tabular data).
+- **Enquiry** (`enquiry.html`) — one form for all enquiries: adopt / foster
+  / volunteer / sponsor, chosen via radio buttons, with a shared message box
+  for extra detail.
+- **Contact** (`contact.html`) — two locations (main shelter and monthly
+  mobile adoption-day site), an opening-hours table, and a contact form.
+- The same header navigation and footer appear on every page.
+- **No JavaScript yet, on purpose.** JavaScript is planned for Part 3 of
+  this project. The `/js` folder exists (per the required file structure)
+  with a placeholder file, but nothing is wired up to the pages yet. This
+  means the forms don't submit anywhere yet — expected for now, not a bug.
 
-* **Home** (`index.html`) — hero introduction, impact statistics, a
-four-step "how adoption works" list, and example animal profile cards.
-* **About** (`about.html`) — organisation history, mission/vision, and team.
-* **Services** (`services.html`) — adoption process, foster programme,
-and a community outreach/sterilisation schedule (genuine tabular data).
-* **Enquiry** (`enquiry.html`) — one form for all enquiries. Visitors pick
-what they're interested in (adopt / foster / volunteer / sponsor) using
-radio buttons, then use a single message box to add relevant details —
-built to satisfy the brief's non-profit-specific requirement that
-visitors can register interest as a volunteer or sponsor, not only as
-an adopter.
-* **Contact** (`contact.html`) — two locations (main shelter and monthly
-mobile adoption-day site), an opening-hours table, and a contact form.
-* The same header navigation and footer appear on every page, built with
-semantic HTML5 and basic CSS (colours, fonts, spacing, simple
-`inline-block` layout — no CSS Grid or Flexbox yet).
-* **No JavaScript yet, on purpose.** This project's brief covers HTML in
-Part 1, with CSS refined and JavaScript added in Parts 2 and 3. The
-`/js` folder exists (per the required file structure) with a placeholder
-file, but nothing is wired up to the pages yet. This also means the
-forms don't submit anywhere yet, and the nav menu doesn't collapse on
-small screens yet — both are expected next steps, not bugs.
+## Part 2 Details — CSS Styling & Responsive Design
+Part 2 replaced the plain Part 1 styling with a full CSS system:
 
+- **External stylesheet:** a single `css/style.css`, linked from every page.
+- **Base style & reset:** a small deliberate CSS reset (box-sizing, margin/
+  padding zeroing) plus a base font, colour and line-height set on `body`.
+- **Typography:** a type scale using `rem` (a 1.25 ratio across `h1`–`h3`
+  and body text), with explicit `font-family`, `font-weight`, `line-height`
+  and `letter-spacing` on headings.
+- **Layout — Flexbox:** the header/nav row and the hero's two-column layout
+  use `display: flex`, `justify-content`, `align-items` and `flex-wrap`. The
+  same nav rule switches from a row to a column on small screens by changing
+  only `flex-direction` inside a media query — the cascade doing the work
+  rather than writing new rules from scratch.
+- **Layout — CSS Grid:** the animal/service/team card rows, the stats strip,
+  the About/Services/Contact "content + sidebar" layout, and the footer (via
+  named `grid-template-areas`: `about`, `links`, `contact`) all use CSS
+  Grid, with the column count changing per breakpoint.
+- **Visual styles & interactive states:** `box-shadow`, `border-radius` and
+  colour throughout, plus `:hover`, `:focus-visible` and `:active`
+  pseudo-classes on links, buttons and form fields (e.g. buttons lift and
+  darken on hover, inputs get a visible focus ring for keyboard users).
+- **Responsive breakpoints:** two media queries — tablet (`max-width:
+  56.25em` / 900px) and mobile (`max-width: 37.5em` / 600px) — adjusting
+  grid column counts, nav direction, and the hero's stacking.
+- **Relative units:** `rem` for all font sizes and most spacing, `%`/`fr`
+  for grid/flex widths, so the layout scales with the user's own browser
+  font-size setting rather than being fixed to pixels.
+- **Responsive images:** the homepage hero uses `<picture>` with a
+  `media`-conditioned `<source>` — a tighter-cropped illustration
+  (`hero-art-mobile.svg`) loads on narrow screens instead of the wide
+  desktop version, so less space is wasted on small screens (genuine art
+  direction, not just a resize). The animal cards use `srcset`/`sizes` to
+  declare how much viewport width each image occupies at each breakpoint.
 
+### Screenshot evidence (desktop / tablet / mobile)
+*Add your own screenshots here before submitting Part 2* — the brief asks
+for evidence across desktop, tablet and mobile, captured with your browser's
+own dev tools so the screenshots reflect a real rendering engine.
+
+1. Open `index.html` in Chrome or Edge.
+2. Press `F12` to open DevTools, then click the device-toolbar icon (or
+   `Ctrl+Shift+M`) to toggle responsive preview.
+3. Capture one screenshot at a desktop width (e.g. 1280px, or just DevTools
+   closed / full window), one at a tablet width (e.g. 768px — iPad preset),
+   and one at a mobile width (e.g. 375px — iPhone SE/12 preset).
+4. Save them into `docs/screenshots/` in this repository as `desktop.png`,
+   `tablet.png` and `mobile.png`, then replace this section with:
+   ```
+   ![Desktop view](docs/screenshots/desktop.png)
+   ![Tablet view](docs/screenshots/tablet.png)
+   ![Mobile view](docs/screenshots/mobile.png)
+   ```
+5. Repeat for at least one more page (e.g. `services.html`, since it has the
+   table and card grid) if your lecturer wants multiple pages covered.
 
 ## Timeline and Milestones
-
-|Stage|Target Window|Milestone|
-|-|-|-|
-|Part 1|Weeks 1–4|Proposal approval; content research; sitemap; file/folder structure; five HTML pages with semantic structure pushed to GitHub *(this submission)*|
-|Part 2|Weeks 5–8|CSS styling refinement, responsive polish, cross-browser testing|
-|Part 3|Weeks 9–12|JavaScript enhancement, accessibility pass, final testing, debugging, deployment|
-
-## 
-
-## Part 1 Details
-
-Part 1 focused on foundation and planning. Deliverables completed in this
-submission:
-
-* Two full website project proposals researched and drafted (this
-organisation, Paws \& Hope, and an alternative small-business proposal,
-Sunrise Bakehouse), submitted as a separate Word document for lecturer
-approval.
-* Content research and sourcing, organised in `/content-research` (submitted
-separately as a ZIP per the brief) — organisation fact sheet, page-by-page
-draft copy, and an image-sourcing log documenting the licence status of
-every visual asset.
-* A sitemap (see below) and a logical file/folder structure (see below).
-* Five semantic HTML5 pages, cross-linked with a working navigation menu,
-styled with CSS and enhanced with vanilla JavaScript, fully commented.
-
-*(Parts 2 and 3 will extend this same repository in later submissions —
-see the Changelog for a running record of all changes.)*
+| Stage | Target Window | Milestone |
+|---|---|---|
+| Part 1 | Weeks 1–4 | Proposal approval; content research; sitemap; file/folder structure; five HTML pages with semantic structure pushed to GitHub — **96/100** |
+| Part 2 | Weeks 5–8 | CSS styling, Grid/Flexbox layout, responsive breakpoints, responsive images *(this submission)* |
+| Part 3 | Weeks 9–12 | JavaScript enhancement, accessibility pass, final testing, debugging, deployment |
 
 ## Sitemap
-
-!\[Sitemap showing Homepage linking to About, Services, Enquiry and Contact, with Services expanding into Adopt, Foster and Volunteer](docs/sitemap.png)
+![Sitemap showing Homepage linking to About, Services, Enquiry and Contact, with Services expanding into Adopt, Foster and Volunteer](docs/sitemap.png)
 
 ```
 Homepage (index.html)
@@ -122,16 +139,13 @@ Homepage (index.html)
 │   └── Community outreach
 ├── Enquiry (enquiry.html)
 └── Contact (contact.html)
-
+```
 
 All five pages share the same persistent header navigation menu and footer,
 so every page is reachable from every other page in a single click.
 
-## 
-
 ## File and Folder Structure
-
-
+```
 paws-and-hope-website/
 ├── index.html
 ├── about.html
@@ -141,80 +155,91 @@ paws-and-hope-website/
 ├── css/
 │   └── style.css
 ├── js/
-│   └── script.js
+│   └── script.js            (placeholder — Part 3)
 ├── images/
 │   ├── logo-mark.svg, favicon.svg
-│   ├── hero-art.svg, paw-solo.svg
+│   ├── hero-art.svg, hero-art-mobile.svg, paw-solo.svg
 │   ├── icon-adopt.svg, icon-foster.svg, icon-volunteer.svg, icon-outreach.svg
 │   └── avatar-dog.svg, avatar-cat.svg, avatar-rabbit.svg
 ├── docs/
-│   └── sitemap.png
+│   ├── sitemap.png
+│   └── screenshots/          (add your desktop/tablet/mobile evidence here)
 └── README.md
-
+```
 
 ## Changelog
-
 All notable changes to this project are recorded below, newest first, and
 correspond to the commit history in this repository.
 
-### \[0.1.1] — Simplified to match Part 1 scope
+### [0.2.0] — Part 2: CSS styling & responsive design
+- **Added:** Full rewrite of `css/style.css` — CSS reset, custom-property
+  design tokens (colour palette, type scale, spacing scale), typography,
+  Flexbox layout (header/nav, hero), CSS Grid layout (card grids, stats,
+  content+sidebar, footer with named grid areas), visual styling with
+  `:hover`/`:focus-visible`/`:active` states, and two responsive breakpoints
+  (tablet 900px, mobile 600px) using relative (`rem`/`%`/`fr`) units.
+- **Added:** `images/hero-art-mobile.svg` — a tighter-cropped variant of the
+  hero illustration, served via `<picture>` on narrow screens for genuine
+  art-directed responsive imagery.
+- **Added:** `srcset`/`sizes` attributes on the homepage animal cards to
+  declare rendered image width per breakpoint.
+- **Changed:** Updated markup on all five pages to match the new CSS
+  structure (nav wrapped in `<nav class="primary-nav">`, card rows wrapped
+  in `.card-grid`, About/Services/Contact content wrapped in
+  `.content-layout` + `.sidebar`, footer wrapped in `.footer-grid` with
+  named areas). Page content and copy are unchanged from Part 1.
+- **Noted:** Part 1 was marked 96/100 with no specific corrections
+  requested (see "Part 1 Feedback" above), so no content changes were
+  needed before starting Part 2's styling work.
 
-* **Removed:** Mobile menu toggle button and all JavaScript-driven
-interactivity. This project's own timeline (see the Website Project
-Proposal) puts JavaScript in Parts 2 and 3, so `js/script.js` is now a
-placeholder file with a comment explaining what's planned, and no page
-currently links to it.
-* **Changed:** Header and navigation now use simple `inline-block`
-elements instead of Flexbox, so the CSS matches material covered so far.
-* **Removed:** The `@media` responsive breakpoint, since it existed only
-to support the JavaScript menu toggle. On a narrow screen the nav links
-and stat boxes now simply wrap onto more than one line — expected
-default browser behaviour, not a bug.
-* **Changed:** Footer copyright year is now static text instead of being
-set by JavaScript.
+### [0.1.1] — Simplified to match Part 1 scope
+- **Removed:** Mobile menu toggle button and all JavaScript-driven
+  interactivity, deferred to Part 3.
+- **Changed:** Header and navigation used simple `inline-block` elements
+  instead of Flexbox at this stage, matching material covered so far.
+- **Removed:** The `@media` responsive breakpoint, since it existed only to
+  support the JavaScript menu toggle at the time.
+- **Changed:** Footer copyright year set as static text instead of via
+  JavaScript.
 
-### \[0.1.0] — Part 1 submission
-
-* **Added:** Global stylesheet (`css/style.css`) with the site's colour
-palette and typography and basic layout rules.
-* **Added:** Original SVG artwork — logo/favicon, hero illustration, four
-service icons, and three example-animal avatar illustrations — created
-in-house to avoid any third-party licensing risk.
-* **Added:** `index.html` — homepage with hero, impact stats, a numbered
-"how adoption works" list, and example animal cards.
-* **Added:** `about.html` — history, mission/vision and team.
-* **Added:** `services.html` — adoption process, foster programme and a
-genuine data table of community outreach dates.
-* **Added:** `enquiry.html` — one form covering adopt / foster / volunteer
-/ sponsor enquiries, using radio buttons plus a shared message field.
-* **Added:** `contact.html` — two locations, opening-hours table, and a
-contact form.
-* **Fixed:** A CSS selector bug where `.stats div` was accidentally
-matching the page's `.container` wrapper as well as the four stat boxes,
-causing them to overlap instead of sitting side by side. Fixed by giving
-the stat boxes their own class (`.stat-box`) instead of relying on the
-bare `div` selector.
-* **Added:** Content research package (`/content-research`, submitted as a
-separate ZIP) and this README.
-
-## 
+### [0.1.0] — Part 1 submission
+- **Added:** Global stylesheet (`css/style.css`) with the site's colour
+  palette and typography and basic layout rules.
+- **Added:** Original SVG artwork — logo/favicon, hero illustration, four
+  service icons, and three example-animal avatar illustrations — created
+  in-house to avoid any third-party licensing risk.
+- **Added:** `index.html`, `about.html`, `services.html`, `enquiry.html`,
+  `contact.html` — five semantic HTML5 pages with real written content.
+- **Fixed:** A CSS selector bug where `.stats div` was accidentally
+  matching the page's `.container` wrapper as well as the four stat boxes,
+  causing them to overlap instead of sitting side by side. Fixed by giving
+  the stat boxes their own class instead of relying on the bare `div`
+  selector.
+- **Added:** Content research package (submitted separately as a ZIP) and
+  this README.
 
 ## References
-
 References for the general web-development standards and licensing
 information used throughout this project (organisation-specific references
-for Paws \& Hope and Sunrise Bakehouse appear at the end of each proposal in
+for Paws & Hope and Sunrise Bakehouse appear at the end of each proposal in
 the Website Project Proposal document):
 
-CIPC (n.d.) *Domain Name Registration*. Available at: https://www.cipc.co.za/?page\_id=4565 (Accessed: 14 August 2026).
+CIPC (n.d.) *Domain Name Registration*. Available at: https://www.cipc.co.za/?page_id=4565 (Accessed: 14 August 2026).
 
 Creative Commons (n.d.) *About CC Licenses*. Available at: https://creativecommons.org/share-your-work/cclicenses/ (Accessed: 14 August 2026).
 
 Department of Social Development (n.d.) *About Us — Register of Nonprofit Organisations in South Africa*. Available at: https://www.dsd.gov.za/index.php/npo/about-us (Accessed: 14 August 2026).
 
+Mozilla Developer Network (n.d.) *Basic concepts of flexbox*. Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox (Accessed: 18 September 2026).
+
+Mozilla Developer Network (n.d.) *CSS grid layout*. Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout (Accessed: 18 September 2026).
+
 Mozilla Developer Network (n.d.) *HTML elements reference*. Available at: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements (Accessed: 14 August 2026).
+
+Mozilla Developer Network (n.d.) *&lt;picture&gt;: The Picture element*. Available at: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture (Accessed: 18 September 2026).
+
+Mozilla Developer Network (n.d.) *Media query*. Available at: https://developer.mozilla.org/en-US/docs/Glossary/Media_query (Accessed: 18 September 2026).
 
 South African Government (n.d.) *Register a nonprofit organisation*. Available at: https://www.gov.za/services/register-nonprofit-organisation (Accessed: 14 August 2026).
 
 World Wide Web Consortium (W3C) (n.d.) *WCAG 2 at a Glance*. Web Accessibility Initiative (WAI). Available at: https://www.w3.org/WAI/standards-guidelines/wcag/glance/ (Accessed: 14 August 2026).
-
