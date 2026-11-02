@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 480" role="img" aria-labelledby="heroTitle">
+  <title id="heroTitle">Illustration of a dog and cat sitting together beneath a sun, with a trail of paw prints leading toward them</title>
+  <style>
+    /* The paw prints appear one after another, as if walking in towards the animals. */
+    .paw { opacity: 0; animation: pawIn 0.6s ease-out forwards; }
+    .paw1 { animation-delay: 0.3s; } .paw2 { animation-delay: 0.9s; } .paw3 { animation-delay: 1.5s; }
+    @keyframes pawIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 0.9; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .paw { animation: none; opacity: 0.9; } }
+  </style>
+
+  <!-- sun -->
+  <circle cx="440" cy="90" r="58" fill="#D2932B" opacity="0.9"/>
+  <circle cx="440" cy="90" r="58" fill="none" stroke="#F4E6C9" stroke-width="10" stroke-dasharray="4 14" opacity="0.7"/>
+
+  <!-- ground -->
+  <path d="M0 400 C 120 370, 440 370, 560 405 L560 480 L0 480 Z" fill="#A9C0A0" opacity="0.55"/>
+
+  <!-- paw print trail leading in -->
+  <g fill="#FBF7EE">
+    <g class="paw paw1">
+      <ellipse cx="60" cy="360" rx="7" ry="9"/>
+      <ellipse cx="80" cy="345" rx="4" ry="5"/>
+      <ellipse cx="72" cy="333" rx="4" ry="5"/>
+      <ellipse cx="88" cy="330" rx="4" ry="5"/>
+    </g>
+    <g class="paw paw2">
+      <ellipse cx="130" cy="345" rx="7" ry="9"/>
+      <ellipse cx="150" cy="330" rx="4" ry="5"/>
+      <ellipse cx="142" cy="318" rx="4" ry="5"/>
+      <ellipse cx="158" cy="315" rx="4" ry="5"/>
+    </g>
+    <g class="paw paw3">
+      <ellipse cx="200" cy="335" rx="7" ry="9"/>
+      <ellipse cx="220" cy="320" rx="4" ry="5"/>
+      <ellipse cx="212" cy="308" rx="4" ry="5"/>
+      <ellipse cx="228" cy="305" rx="4" ry="5"/>
+    </g>
+  </g>
+
+  <!-- dog silhouette -->
+  <g transform="translate(255,190)">
+    <ellipse cx="55" cy="185" rx="70" ry="22" fill="#172319" opacity="0.08"/>
+    <path d="M10 190 C -6 150, -2 95, 34 70 C 30 50, 40 30, 60 22 C 58 34, 62 44, 70 50 C 92 44, 112 56, 116 80 C 128 84, 134 96, 130 110 C 150 118, 158 140, 150 160 L150 190 Z" fill="#5C4A3A"/>
+    <path d="M40 60 C 26 44, 20 24, 30 8 C 40 20, 42 38, 46 54 Z" fill="#5C4A3A"/>
+    <path d="M78 46 C 84 28, 78 10, 62 0 C 66 18, 70 34, 70 50 Z" fill="#5C4A3A"/>
+    <circle cx="98" cy="80" r="4.2" fill="#FBF7EE"/>
+    <ellipse cx="122" cy="92" rx="6" ry="4.4" fill="#2b2420"/>
+  </g>
+
+  <!-- cat silhouette -->
+  <g transform="translate(150,225)">
+    <ellipse cx="45" cy="150" rx="55" ry="18" fill="#172319" opacity="0.08"/>
+    <path d="M0 155 C -4 120, 4 85, 30 68 L 22 30 L 46 54 C 56 50, 66 50, 76 54 L 100 28 L 90 68 C 114 86, 120 122, 114 155 Z" fill="#D2932B"/>
+    <circle cx="55" cy="82" r="3.6" fill="#2b2420"/>
+    <circle cx="75" cy="82" r="3.6" fill="#2b2420"/>
+    <path d="M60 92 L70 92 L65 98 Z" fill="#2b2420"/>
+    <path d="M0 150 C -30 145, -55 130, -70 108" fill="none" stroke="#D2932B" stroke-width="9" stroke-linecap="round"/>
+  </g>
+</svg>

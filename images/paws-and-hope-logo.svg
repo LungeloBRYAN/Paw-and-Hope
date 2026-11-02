@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="logoTitle">
+  <title id="logoTitle">Paws &amp; Hope Animal Rescue logo mark</title>
+  <circle cx="24" cy="24" r="24" fill="#D2932B"/>
+  <ellipse cx="24" cy="29.5" rx="9.2" ry="7.6" fill="#FBF7EE"/>
+  <ellipse cx="12.8" cy="19" rx="3.6" ry="4.4" transform="rotate(-18 12.8 19)" fill="#FBF7EE"/>
+  <ellipse cx="20.2" cy="13.2" rx="3.6" ry="4.4" transform="rotate(-6 20.2 13.2)" fill="#FBF7EE"/>
+  <ellipse cx="27.8" cy="13.2" rx="3.6" ry="4.4" transform="rotate(6 27.8 13.2)" fill="#FBF7EE"/>
+  <ellipse cx="35.2" cy="19" rx="3.6" ry="4.4" transform="rotate(18 35.2 19)" fill="#FBF7EE"/>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="a3">
+  <title id="a3">Simple illustrated portrait of a grey rabbit</title>
+  <rect width="200" height="200" fill="#EEF0E6"/>
+  <ellipse cx="78" cy="55" rx="14" ry="42" transform="rotate(-8 78 55)" fill="#A9C0A0"/>
+  <ellipse cx="122" cy="55" rx="14" ry="42" transform="rotate(8 122 55)" fill="#A9C0A0"/>
+  <ellipse cx="78" cy="58" rx="6.5" ry="30" transform="rotate(-8 78 58)" fill="#e7ece2"/>
+  <ellipse cx="122" cy="58" rx="6.5" ry="30" transform="rotate(8 122 58)" fill="#e7ece2"/>
+  <circle cx="100" cy="122" r="52" fill="#A9C0A0"/>
+  <circle cx="84" cy="115" r="6" fill="#2b2420"/>
+  <circle cx="116" cy="115" r="6" fill="#2b2420"/>
+  <ellipse cx="100" cy="130" rx="6" ry="4.5" fill="#e08a7a"/>
+  <path d="M100 134 Q100 140 92 141" stroke="#2b2420" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+  <path d="M100 134 Q100 140 108 141" stroke="#2b2420" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+</svg>

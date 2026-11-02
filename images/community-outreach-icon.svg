@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="t4">
+  <title id="t4">Megaphone icon representing community outreach</title>
+  <path d="M6 20 v8 h6 l14 8 V12 L12 20 Z" fill="#24382C"/>
+  <path d="M26 15 v18" stroke="#24382C" stroke-width="3" stroke-linecap="round"/>
+  <path d="M34 17 a8 8 0 0 1 0 14" fill="none" stroke="#D2932B" stroke-width="3" stroke-linecap="round"/>
+  <path d="M38 13 a13.5 13.5 0 0 1 0 22" fill="none" stroke="#D2932B" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+  <path d="M10 28 v6 a3 3 0 0 0 3 3 h1 a3 3 0 0 0 3-3 v-6" fill="#D2932B"/>
+</svg>

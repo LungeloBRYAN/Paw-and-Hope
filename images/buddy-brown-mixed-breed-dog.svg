@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="a1">
+  <title id="a1">Simple illustrated portrait of a scruffy brown dog</title>
+  <rect width="200" height="200" fill="#EEF0E6"/>
+  <ellipse cx="55" cy="95" rx="22" ry="34" transform="rotate(-18 55 95)" fill="#5C4A3A"/>
+  <ellipse cx="145" cy="95" rx="22" ry="34" transform="rotate(18 145 95)" fill="#5C4A3A"/>
+  <circle cx="100" cy="112" r="55" fill="#77604A"/>
+  <ellipse cx="100" cy="132" rx="26" ry="20" fill="#EDE3D3"/>
+  <circle cx="80" cy="100" r="6.5" fill="#2b2420"/>
+  <circle cx="120" cy="100" r="6.5" fill="#2b2420"/>
+  <ellipse cx="100" cy="128" rx="7" ry="5" fill="#2b2420"/>
+  <path d="M100 133 Q100 140 90 140" stroke="#2b2420" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M100 133 Q100 140 110 140" stroke="#2b2420" stroke-width="3" fill="none" stroke-linecap="round"/>
+</svg>

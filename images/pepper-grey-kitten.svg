@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="a2">
+  <title id="a2">Simple illustrated portrait of a grey kitten</title>
+  <rect width="200" height="200" fill="#EEF0E6"/>
+  <path d="M62 78 L48 40 L84 66 Z" fill="#8F9AA3"/>
+  <path d="M138 78 L152 40 L116 66 Z" fill="#8F9AA3"/>
+  <circle cx="100" cy="115" r="58" fill="#8F9AA3"/>
+  <path d="M80 105 L92 112 L80 116 Z" fill="#56616A"/>
+  <path d="M120 105 L108 112 L120 116 Z" fill="#56616A"/>
+  <circle cx="82" cy="108" r="8.5" fill="#2b2420"/>
+  <circle cx="118" cy="108" r="8.5" fill="#2b2420"/>
+  <path d="M96 128 Q100 133 104 128" stroke="#2b2420" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M100 122 L100 128" stroke="#2b2420" stroke-width="3" stroke-linecap="round"/>
+  <g stroke="#fff8ea" stroke-width="2.4" stroke-linecap="round" opacity="0.85">
+    <line x1="45" y1="118" x2="72" y2="122"/>
+    <line x1="45" y1="128" x2="72" y2="128"/>
+    <line x1="128" y1="122" x2="155" y2="118"/>
+    <line x1="128" y1="128" x2="155" y2="128"/>
+  </g>
+</svg>
