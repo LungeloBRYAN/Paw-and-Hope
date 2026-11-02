@@ -1,0 +1,10 @@
+# robots.txt for Paws & Hope Animal Rescue
+# This file tells search engine crawlers which parts of the site they may visit.
+
+User-agent: *
+Allow: /
+# The docs folder only holds screenshots and a diagram for the README, not pages
+Disallow: /docs/
+
+# The sitemap lists every page so search engines can find them all
+Sitemap: https://lungelobryan.github.io/Paw-and-Hope/sitemap.xml

@@ -1,23 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | Paws &amp; Hope Animal Rescue</title>
-  <meta name="description" content="Learn about Paws & Hope Animal Rescue's history, mission, vision and the volunteer team.">
+
+  <!-- ===== SEO: title, description and keywords (different on every page) ===== -->
+  <title>About Us | Johannesburg Animal Rescue NPO | Paws &amp; Hope</title>
+  <meta name="description" content="Meet the volunteers behind Paws &amp; Hope, a registered Johannesburg animal rescue NPO founded in 2015. Read our story and mission, and see the animals we help.">
+  <meta name="keywords" content="about Paws &amp; Hope, animal rescue NPO Johannesburg, animal shelter history, rescue volunteers, animal rescue mission">
+  <meta name="author" content="Lungelo Mabindisa">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#24382c">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Open Graph: controls how the page looks when it is shared on social media -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Paws &amp; Hope Animal Rescue">
+  <meta property="og:title" content="About Us | Johannesburg Animal Rescue NPO | Paws &amp; Hope">
+  <meta property="og:description" content="Meet the volunteers behind Paws &amp; Hope, a registered Johannesburg animal rescue NPO founded in 2015. Read our story and mission, and see the animals we help.">
+  <meta property="og:locale" content="en_ZA">
+
+  <!-- Fonts: preconnect makes the font files start loading earlier (faster page) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Adds a "js" class to the page when JavaScript is running, so the CSS can show JavaScript-only parts (like the Menu button) -->
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
 
+  <!-- ===== Header and navigation menu (same on every page) ===== -->
   <header class="site-header">
     <div class="container">
       <a href="index.html" class="logo">
-        <img src="images/logo-mark.svg" alt="Paws and Hope logo">
+        <img src="images/paws-and-hope-logo.svg" alt="Paws and Hope paw-print logo" width="36" height="36">
         Paws &amp; Hope
       </a>
-      <nav class="primary-nav" aria-label="Primary">
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html" aria-current="page">About</a></li>
@@ -29,10 +53,13 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
 
     <div class="page-banner">
       <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">About</span>
+        </nav>
         <h1>About Paws &amp; Hope</h1>
         <p>A community-built non-profit, run by people who simply could not walk past an animal in need.</p>
       </div>
@@ -43,8 +70,8 @@
 
         <div>
           <h2>Our History</h2>
-          <p>Paws &amp; Hope Animal Rescue was founded in 2015 by a small group of volunteer foster carers who kept encountering the same problem: far more abandoned and at-risk animals than any single shelter in the area could handle. What began as an informal WhatsApp group coordinating foster placements has since grown into a registered non-profit organisation running a small shelter facility, an active network of foster homes, monthly mobile adoption days, and a community sterilisation drive.</p>
-          <p>Today, Paws &amp; Hope is run by a small core team supported by more than 120 volunteers, and works closely with local vets, pet food suppliers and corporate sponsors to keep our programmes running.</p>
+          <p>Paws &amp; Hope Animal Rescue was founded in 2015 by a small group of volunteer foster carers who kept encountering the same problem: far more abandoned and at-risk animals than any single shelter in the area could handle. What began as an informal WhatsApp group coordinating foster placements has since grown into a registered animal rescue NPO (non-profit organisation) running a small shelter facility, an active network of foster homes, monthly mobile adoption days, and a community sterilisation drive.</p>
+          <p>Today, Paws &amp; Hope is run by a small core team supported by more than 120 volunteers, and works closely with local vets, pet food suppliers and corporate sponsors to keep our <a href="services.html">adoption, foster and outreach programmes</a> running.</p>
 
           <h2>Mission &amp; Vision</h2>
           <p><strong>Mission:</strong> To rescue, rehabilitate and rehome abandoned and at-risk companion animals, and to reduce animal homelessness through community education and accessible sterilisation.</p>
@@ -57,8 +84,8 @@
             <li class="tag">Sterilisation Outreach</li>
           </ul>
 
-          <h2 style="margin-top:var(--space-4);">Meet the Team</h2>
-          <p>Paws &amp; Hope is powered almost entirely by volunteers who give their evenings and weekends to animals that cannot yet speak for themselves.</p>
+          <h2 class="spaced-heading">Meet the Team</h2>
+          <p>Paws &amp; Hope is powered almost entirely by volunteers who give their evenings and weekends to animals that cannot yet speak for themselves. Want to join them? <a href="enquiry.html">Tell us how you would like to help</a>.</p>
 
           <div class="card-grid">
             <div class="card">
@@ -89,27 +116,78 @@
               <li>45 partner foster homes</li>
               <li>Monthly mobile adoption days</li>
             </ul>
-            <a href="enquiry.html" class="btn btn-primary" style="display:block;text-align:center;margin-top:var(--space-2);">Get Involved</a>
+            <a href="enquiry.html" class="btn btn-primary btn-block">Get Involved</a>
           </div>
         </aside>
 
       </div>
     </div>
 
+    <!-- ===== Gallery with lightbox (js/lightbox.js) ===== -->
+    <section class="section section-alt" id="gallery" aria-labelledby="gallery-heading">
+      <div class="container">
+        <h2 id="gallery-heading">Gallery: The Faces of Paws &amp; Hope</h2>
+        <p>Select a picture to see it larger. In the larger view, use the arrow buttons, the left and right arrow keys or a swipe to move between pictures. Press Escape to close. Want to meet them in person? <a href="contact.html">Find out where to visit</a>.</p>
+        <ul class="gallery-grid">
+          <li>
+            <a href="images/buddy-brown-mixed-breed-dog.svg" class="gallery-link" data-caption="Buddy, a 3-year-old mixed-breed dog who loves long walks">
+              <img src="images/buddy-brown-mixed-breed-dog.svg" alt="Illustration of Buddy, a scruffy brown mixed-breed dog" width="400" height="400" loading="lazy">
+            </a>
+          </li>
+          <li>
+            <a href="images/zola-golden-labrador-cross-dog.svg" class="gallery-link" data-caption="Zola, an 18-month-old labrador cross who loves fetch">
+              <img src="images/zola-golden-labrador-cross-dog.svg" alt="Illustration of Zola, a golden labrador-cross dog with floppy ears" width="400" height="400" loading="lazy">
+            </a>
+          </li>
+          <li>
+            <a href="images/max-senior-black-dog.svg" class="gallery-link" data-caption="Max, a calm 9-year-old dog waiting for a quiet home">
+              <img src="images/max-senior-black-dog.svg" alt="Illustration of Max, a senior black dog with a grey muzzle" width="400" height="400" loading="lazy">
+            </a>
+          </li>
+          <li>
+            <a href="images/nala-ginger-shorthair-cat.svg" class="gallery-link" data-caption="Nala, a 1-year-old ginger cat who is shy at first">
+              <img src="images/nala-ginger-shorthair-cat.svg" alt="Illustration of Nala, a ginger shorthair cat with white whiskers" width="400" height="400" loading="lazy">
+            </a>
+          </li>
+          <li>
+            <a href="images/pepper-grey-kitten.svg" class="gallery-link" data-caption="Pepper, a 4-month-old playful kitten">
+              <img src="images/pepper-grey-kitten.svg" alt="Illustration of Pepper, a grey kitten with big dark eyes" width="400" height="400" loading="lazy">
+            </a>
+          </li>
+          <li>
+            <a href="images/tigger-brown-tabby-cat.svg" class="gallery-link" data-caption="Tigger, an easygoing tabby who loves window seats">
+              <img src="images/tigger-brown-tabby-cat.svg" alt="Illustration of Tigger, a brown tabby cat" width="400" height="400" loading="lazy">
+            </a>
+          </li>
+          <li>
+            <a href="images/thistle-grey-rabbit.svg" class="gallery-link" data-caption="Thistle, an 8-month-old sociable rabbit">
+              <img src="images/thistle-grey-rabbit.svg" alt="Illustration of Thistle, a grey rabbit with tall ears" width="400" height="400" loading="lazy">
+            </a>
+          </li>
+          <li>
+            <a href="images/clover-white-rabbit.svg" class="gallery-link" data-caption="Clover, a gentle white rabbit who loves fresh herbs">
+              <img src="images/clover-white-rabbit.svg" alt="Illustration of Clover, a white rabbit with pink inner ears" width="400" height="400" loading="lazy">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
   </main>
 
+  <!-- ===== Footer (same on every page) ===== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-about">
           <div class="logo">
-            <img src="images/logo-mark.svg" alt="">
+            <img src="images/paws-and-hope-logo.svg" alt="" width="36" height="36">
             Paws &amp; Hope
           </div>
           <p class="footer-blurb">Rescuing, rehabilitating and rehoming companion animals in Johannesburg since 2015.</p>
         </div>
         <nav class="footer-links" aria-label="Footer">
-          <h2 class="footer-heading">Quick Links</h2>
+          <p class="footer-heading">Quick Links</p>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
@@ -119,20 +197,22 @@
           </ul>
         </nav>
         <div class="footer-contact">
-          <h2 class="footer-heading">Visit or Contact</h2>
+          <p class="footer-heading">Visit or Contact</p>
           <address>
             142 Bryanston Drive, Bryanston, Johannesburg, 2191<br>
-            <a href="tel:+27115550142">011 555 0142</a><br>
+            <a href="tel:+27115550142">011&nbsp;555&nbsp;0142</a><br>
             <a href="mailto:hello@pawsandhope.org.za">hello@pawsandhope.org.za</a>
           </address>
         </div>
       </div>
       <p class="footer-bottom">
-        <span>&copy; 2026 Paws &amp; Hope Animal Rescue &middot; Registered Non-Profit Organisation</span>
-        <span>Website built as an academic Portfolio of Evidence, Part 2</span>
+        <span>&copy; 2026 Paws &amp; Hope Animal Rescue</span>
+        <span>Paws &amp; Hope is a fictional organisation made for a college project (Part 3 of the Web Development PoE). The animals, events and contact details are examples.</span>
       </p>
     </div>
   </footer>
 
+  <script src="js/script.js"></script>
+  <script src="js/lightbox.js"></script>
 </body>
 </html>

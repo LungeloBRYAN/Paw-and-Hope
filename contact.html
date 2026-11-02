@@ -1,30 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | Paws &amp; Hope Animal Rescue</title>
-  <meta name="description" content="Find Paws & Hope Animal Rescue's shelter and monthly mobile adoption-day location, opening hours, and ways to get in touch.">
+
+  <!-- ===== SEO: title, description and keywords (different on every page) ===== -->
+  <title>Animal Shelter in Bryanston | Contact &amp; Visit | Paws &amp; Hope</title>
+  <meta name="description" content="Visit our animal shelter in Bryanston or the monthly adoption day in Alexandra. Find both on the map, see opening hours or send us a message.">
+  <meta name="keywords" content="animal shelter in Bryanston, contact animal rescue Johannesburg, shelter opening hours, adoption day Alexandra, Paws &amp; Hope contact">
+  <meta name="author" content="Lungelo Mabindisa">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#24382c">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Open Graph: controls how the page looks when it is shared on social media -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Paws &amp; Hope Animal Rescue">
+  <meta property="og:title" content="Animal Shelter in Bryanston | Contact &amp; Visit | Paws &amp; Hope">
+  <meta property="og:description" content="Visit our animal shelter in Bryanston or the monthly adoption day in Alexandra. Find both on the map, see opening hours or send us a message.">
+  <meta property="og:locale" content="en_ZA">
+
+  <!-- Fonts: preconnect makes the font files start loading earlier (faster page) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    .map-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3); margin-bottom: var(--space-4); }
-    .map-card { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--color-line); box-shadow: var(--shadow); background: var(--color-white); }
-    .map-card iframe { width: 100%; height: 220px; border: 0; display: block; }
-    .map-card figcaption { padding: var(--space-2); }
-    @media (max-width: 56.25em) { .map-grid { grid-template-columns: 1fr; } }
-  </style>
+
+  <!-- Leaflet map library. "integrity" is a security check: the browser refuses the file if it has been tampered with. -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+  <!-- Adds a "js" class to the page when JavaScript is running, so the CSS can show JavaScript-only parts (like the Menu button) -->
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
 
+  <!-- ===== Header and navigation menu (same on every page) ===== -->
   <header class="site-header">
     <div class="container">
       <a href="index.html" class="logo">
-        <img src="images/logo-mark.svg" alt="Paws and Hope logo">
+        <img src="images/paws-and-hope-logo.svg" alt="Paws and Hope paw-print logo" width="36" height="36">
         Paws &amp; Hope
       </a>
-      <nav class="primary-nav" aria-label="Primary">
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
@@ -36,67 +56,123 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
 
     <div class="page-banner">
       <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Contact</span>
+        </nav>
         <h1>Contact Us</h1>
         <p>Visit the shelter, catch us at a mobile adoption day, or reach out online.</p>
       </div>
     </div>
 
     <div class="container section">
-      <h2>Find Us</h2>
-      <div class="map-grid">
-        <figure class="map-card">
-          <iframe src="https://maps.google.com/maps?q=Bryanston%2C%20Johannesburg&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed" title="Map showing the Paws and Hope shelter location in Bryanston"></iframe>
-          <figcaption><strong>Main Shelter</strong><br>142 Bryanston Drive, Bryanston, Johannesburg, 2191 &middot; Open daily</figcaption>
-        </figure>
-        <figure class="map-card">
-          <iframe src="https://maps.google.com/maps?q=Alexandra%2C%20Johannesburg&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed" title="Map showing the mobile adoption day location in Alexandra"></iframe>
-          <figcaption><strong>Mobile Adoption Day</strong><br>Alexandra Community Hall &middot; First Sunday of every month, 09:00&ndash;13:00</figcaption>
-        </figure>
+      <h2 id="find-us">Find Us</h2>
+      <p>We have two places to visit: our animal shelter in Bryanston and a monthly adoption day in Alexandra. Use the buttons to zoom to each one, or let the map tell you which is closest to you. Interested in adopting first? See <a href="services.html#animals">the animals waiting for a home</a>.</p>
+
+      <div class="map-layout">
+        <div>
+          <div id="map" class="map" role="region" aria-label="Map showing the Paws and Hope shelter in Bryanston and the monthly adoption day in Alexandra"></div>
+          <p class="map-note">Pins show the approximate centre of each suburb. &copy; OpenStreetMap contributors.</p>
+          <noscript><p class="no-results">The interactive map needs JavaScript. The addresses and opening hours are listed beside it.</p></noscript>
+        </div>
+
+        <div class="map-side">
+          <div class="card">
+            <h3>Main Shelter</h3>
+            <p>142 Bryanston Drive, Bryanston, Johannesburg, 2191<br>Open Monday to Saturday (see opening hours below).</p>
+            <button type="button" class="btn btn-dark" data-location="shelter">Show on map</button>
+          </div>
+          <div class="card">
+            <h3>Mobile Adoption Day</h3>
+            <p>Alexandra Community Hall, Alexandra, Johannesburg<br>First Sunday of every month, 09:00&ndash;13:00.</p>
+            <button type="button" class="btn btn-dark" data-location="adoption-day">Show on map</button>
+          </div>
+          <div class="map-tools">
+            <button type="button" class="btn btn-outline-dark" id="map-show-both">Show both</button>
+            <button type="button" class="btn btn-outline-dark" id="map-nearest">Find the closest to me</button>
+          </div>
+          <p class="map-status" id="map-status" role="status"></p>
+        </div>
       </div>
 
-      <h2>Opening Hours</h2>
+      <h2 class="spaced-heading">Opening Hours</h2>
       <table>
         <caption>Shelter opening hours</caption>
         <thead><tr><th scope="col">Day</th><th scope="col">Hours</th></tr></thead>
         <tbody>
           <tr><th scope="row">Monday &ndash; Friday</th><td>09:00 &ndash; 17:00</td></tr>
           <tr><th scope="row">Saturday</th><td>09:00 &ndash; 14:00</td></tr>
-          <tr><th scope="row">Sunday</th><td>Closed (except monthly mobile adoption day)</td></tr>
+          <tr><th scope="row">Sunday</th><td>Closed (except the monthly mobile adoption day)</td></tr>
         </tbody>
       </table>
+    </div>
 
-      <div class="content-layout" style="margin-top:var(--space-4);">
+    <div class="container">
+      <div class="content-layout section">
         <div>
           <h2>Send Us a Message</h2>
-          <form id="contact-form">
-            <label for="c-name">Full name</label>
-            <input type="text" id="c-name" name="name" required>
-            <label for="c-email">Email address</label>
-            <input type="email" id="c-email" name="email" required>
-            <label for="c-subject">Subject</label>
-            <select id="c-subject" name="subject">
-              <option value="general">General enquiry</option>
-              <option value="adoption">Adoption follow-up</option>
-              <option value="media">Media / partnership</option>
-              <option value="other">Other</option>
-            </select>
-            <label for="c-message">Message</label>
-            <textarea id="c-message" name="message" rows="5" required></textarea>
-            <div style="margin-top:var(--space-3);">
-              <button type="submit" class="btn btn-primary">Send Message</button>
+          <p>For a general question, feedback or a media request. Want to adopt, foster, volunteer or sponsor? Please use the <a href="enquiry.html">enquiry form</a> instead.</p>
+
+          <!-- No mail server here, so js/forms.js builds the email and gives you a button to send it from your own email app.
+               To change who receives it, edit the address in the action attribute (the only place it is written). -->
+          <form id="contact-form" class="form" action="mailto:hello@pawsandhope.org.za" method="post" enctype="text/plain" novalidate>
+            <div class="form-summary" id="contact-summary" role="alert" hidden></div>
+
+            <div class="form-field">
+              <label for="c-name">Full name <span class="required">(required)</span></label>
+              <input type="text" id="c-name" name="name" autocomplete="name" required minlength="2" maxlength="60" data-rule="name" data-label="Your full name" aria-describedby="c-name-error">
+              <p class="field-error" id="c-name-error"></p>
             </div>
+
+            <div class="form-field">
+              <label for="c-email">Email address <span class="required">(required)</span></label>
+              <input type="email" id="c-email" name="email" autocomplete="email" required maxlength="100" data-rule="email" data-label="Your email address" aria-describedby="c-email-error">
+              <p class="field-error" id="c-email-error"></p>
+            </div>
+
+            <div class="form-field">
+              <label for="c-phone">Phone number (optional)</label>
+              <input type="tel" id="c-phone" name="phone" autocomplete="tel" inputmode="tel" maxlength="20" data-rule="phone" data-label="Your phone number" aria-describedby="c-phone-hint c-phone-error">
+              <p class="field-hint" id="c-phone-hint">For example 082 123 4567 or +27 82 123 4567.</p>
+              <p class="field-error" id="c-phone-error"></p>
+            </div>
+
+            <div class="form-field">
+              <label for="c-type">What is your message about? <span class="required">(required)</span></label>
+              <select id="c-type" name="type" required data-rule="select" aria-describedby="c-type-error">
+                <option value="">Choose one</option>
+                <option value="general">General question</option>
+                <option value="adoption">Adoption follow-up</option>
+                <option value="media">Media or partnership</option>
+                <option value="feedback">Feedback or complaint</option>
+                <option value="other">Something else</option>
+              </select>
+              <p class="field-error" id="c-type-error"></p>
+            </div>
+
+            <div class="form-field">
+              <label for="c-message">Your message <span class="required">(required, at least 10 characters)</span></label>
+              <textarea id="c-message" name="message" rows="6" required minlength="10" maxlength="700" data-rule="message" data-min="10" data-label="Your message" data-counter="c-message-count" aria-describedby="c-message-count c-message-error"></textarea>
+              <p class="field-hint char-count" id="c-message-count">0 / 700</p>
+              <p class="field-error" id="c-message-error"></p>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Prepare my email</button>
           </form>
+
+          <section class="result-panel" id="contact-result" tabindex="-1" aria-live="polite" hidden></section>
         </div>
+
         <aside class="sidebar">
           <div class="card">
             <h2>Direct Contact</h2>
             <address>
-              <strong>Main Shelter</strong><br>142 Bryanston Drive, Bryanston<br>Johannesburg, 2191<br><br>
-              <a href="tel:+27115550142">011 555 0142</a><br>
+              <strong>Main Shelter</strong><br>
+              142 Bryanston Drive, Bryanston<br>Johannesburg, 2191<br><br>
+              <a href="tel:+27115550142">011&nbsp;555&nbsp;0142</a><br>
               <a href="mailto:hello@pawsandhope.org.za">hello@pawsandhope.org.za</a>
             </address>
           </div>
@@ -106,18 +182,19 @@
 
   </main>
 
+  <!-- ===== Footer (same on every page) ===== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-about">
           <div class="logo">
-            <img src="images/logo-mark.svg" alt="">
+            <img src="images/paws-and-hope-logo.svg" alt="" width="36" height="36">
             Paws &amp; Hope
           </div>
           <p class="footer-blurb">Rescuing, rehabilitating and rehoming companion animals in Johannesburg since 2015.</p>
         </div>
         <nav class="footer-links" aria-label="Footer">
-          <h2 class="footer-heading">Quick Links</h2>
+          <p class="footer-heading">Quick Links</p>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
@@ -127,20 +204,25 @@
           </ul>
         </nav>
         <div class="footer-contact">
-          <h2 class="footer-heading">Visit or Contact</h2>
+          <p class="footer-heading">Visit or Contact</p>
           <address>
             142 Bryanston Drive, Bryanston, Johannesburg, 2191<br>
-            <a href="tel:+27115550142">011 555 0142</a><br>
+            <a href="tel:+27115550142">011&nbsp;555&nbsp;0142</a><br>
             <a href="mailto:hello@pawsandhope.org.za">hello@pawsandhope.org.za</a>
           </address>
         </div>
       </div>
       <p class="footer-bottom">
-        <span>&copy; 2026 Paws &amp; Hope Animal Rescue &middot; Registered Non-Profit Organisation</span>
-        <span>Website built as an academic Portfolio of Evidence, Part 2</span>
+        <span>&copy; 2026 Paws &amp; Hope Animal Rescue</span>
+        <span>Paws &amp; Hope is a fictional organisation made for a college project (Part 3 of the Web Development PoE). The animals, events and contact details are examples.</span>
       </p>
     </div>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/forms.js"></script>
 </body>
 </html>
