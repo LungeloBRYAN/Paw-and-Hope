@@ -1,6 +1,7 @@
 /* ============================================================
    Paws & Hope Animal Rescue — Stylesheet
    Part 2: CSS styling and responsive design.
+   Part 3: styles for the JavaScript features, forms feedback, map and SEO fixes.
 
    Contents:
      1. CSS Reset
@@ -16,6 +17,17 @@
      11. Tables
      12. Footer (Grid with named areas)
      13. Responsive breakpoints (Tablet, Mobile)
+     --- Part 3 additions ---
+     14. Utilities, text links, breadcrumb
+     15. Mobile menu button (needs JavaScript)
+     16. Animal cards, badges
+     17. Search / filter bar
+     18. Accordion (FAQ)
+     19. Modal (animal pop-up)
+     20. Gallery and lightbox
+     21. Map
+     22. Form feedback (errors, replies)
+     23. Reduced motion + Part 3 breakpoints
    ============================================================ */
 
 /* -----------------------------------------------------------
@@ -68,6 +80,7 @@ button {
   --color-bg-alt: #eef0e6;       /* pale moss tint */
   --color-accent: #d2932b;       /* marigold */
   --color-accent-dark: #b87b1e;
+  --color-accent-text: #8f5b0f;  /* darker amber for small TEXT on light backgrounds (contrast 5.7:1; the lighter one only reached 3.6:1) */
   --color-moss: #a9c0a0;
   --color-ink: #2b2924;
   --color-cream-text: #fbf7ee;
@@ -127,6 +140,7 @@ p { margin-bottom: var(--space-2); }
   padding-left: 1.4em;
 }
 .content-list li { margin-bottom: var(--space-1); }
+.content-list + p { margin-top: var(--space-3); } /* space between a list and the button under it */
 
 .container {
   max-width: 72rem; /* ~1152px */
@@ -330,7 +344,7 @@ p { margin-bottom: var(--space-2); }
 .card:hover { transform: translateY(-3px); box-shadow: 0 16px 30px -18px rgba(23,35,25,0.45); }
 
 .card img { border-radius: var(--radius); margin-bottom: var(--space-2); }
-.card .meta { color: var(--color-accent-dark); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: var(--space-1); }
+.card .meta { color: var(--color-accent-text); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: var(--space-1); }
 
 .tag-list { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-top: var(--space-2); }
 .tag {
@@ -376,6 +390,8 @@ form label { display: block; font-weight: 600; margin-top: var(--space-2); margi
 form input[type="text"],
 form input[type="email"],
 form input[type="tel"],
+form input[type="search"],
+form input[type="date"],
 form select,
 form textarea {
   width: 100%;
@@ -503,4 +519,431 @@ tbody tr:hover { background: var(--color-bg-alt); }
   .footer-grid { grid-template-columns: 1fr; grid-template-areas: "about" "links" "contact"; }
 
   .hero h1 { font-size: var(--step-3); }
+}
+
+
+/* ============================================================
+   PART 3 ADDITIONS
+   ============================================================ */
+
+/* -----------------------------------------------------------
+   14. Utilities, text links, breadcrumb
+----------------------------------------------------------- */
+
+/* The HTML "hidden" attribute must always win, even over display:flex/grid rules */
+[hidden] { display: none !important; }
+
+.text-center { text-align: center; }
+.spaced-heading { margin-top: var(--space-4); }
+.spaced-section { margin-top: var(--space-4); }
+.narrow { max-width: 46rem; }
+.more-link { margin-top: var(--space-3); font-weight: 600; }
+
+/* Links inside body text get an underline so they can be seen as links.
+   Buttons, the header and the footer are left alone. */
+main p a:not(.btn),
+main li a:not(.btn):not(.gallery-link),
+main dd a,
+main td a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+main p a:not(.btn):hover,
+main li a:not(.btn):hover { color: var(--color-accent-dark); }
+
+/* ...but on dark sections the link colour must stay light */
+.hero a:not(.btn),
+.page-banner a,
+.cta-banner a:not(.btn) { color: var(--color-cream-text); }
+.cta-links { margin-top: var(--space-3); font-size: 0.95rem; }
+.cta-links a { text-decoration: underline; }
+
+.btn-block { display: block; text-align: center; margin-top: var(--space-2); }
+
+.btn-outline-dark {
+  background-color: transparent;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.btn-outline-dark:hover { background-color: var(--color-primary); color: var(--color-cream-text); }
+.btn-outline-dark:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+
+.btn[disabled] { opacity: 0.6; cursor: not-allowed; }
+
+.no-scroll { overflow: hidden; } /* stops the page scrolling behind a pop-up */
+
+.breadcrumb { font-size: 0.9rem; margin-bottom: var(--space-1); color: rgba(251, 247, 238, 0.75); }
+.breadcrumb a { text-decoration: underline; text-underline-offset: 0.2em; }
+
+.stats-grid .number { font-variant-numeric: tabular-nums; } /* digits keep the same width while counting */
+
+/* -----------------------------------------------------------
+   15. Mobile menu button
+   Only shown when JavaScript is running (the "js" class on <html>)
+   AND the screen is small. Without JavaScript the menu simply stays open.
+----------------------------------------------------------- */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  color: var(--color-cream-text);
+  border: 1.5px solid rgba(251, 247, 238, 0.5);
+  border-radius: var(--radius);
+  padding: 0.4rem 1rem;
+  font-weight: 600;
+  transition: background-color 0.15s ease;
+}
+.nav-toggle:hover { background-color: rgba(251, 247, 238, 0.12); }
+.nav-toggle:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+
+/* -----------------------------------------------------------
+   16. Animal cards and status badges
+----------------------------------------------------------- */
+.card-icon { width: 44px; height: 44px; }
+
+.animal-card { display: flex; flex-direction: column; }
+.animal-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 10 / 9;
+  object-fit: cover;
+  object-position: center 25%; /* anchored high so tall rabbit ears are not cut off */
+  background-color: var(--color-bg-alt);
+}
+.animal-card .card-actions { margin-top: auto; }
+
+.card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1); margin-top: var(--space-2); }
+.fee { font-weight: 600; }
+
+.badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.15rem 0.75rem;
+  border-radius: 999px;
+  margin-bottom: var(--space-1);
+}
+.animal-card .badge { align-self: flex-start; } /* in the flex card, keep the badge as wide as its text */
+.badge-available { background-color: #dbe8d5; color: var(--color-primary); }
+.badge-reserved { background-color: #f4e6c9; color: #7a5316; }
+
+/* -----------------------------------------------------------
+   17. Search / filter bar (Services page)
+----------------------------------------------------------- */
+.filter-bar {
+  max-width: none;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: var(--space-2) var(--space-3);
+  align-items: end;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+.filter-bar label { margin-top: 0; }
+.filter-bar input, .filter-bar select { height: 2.75rem; } /* same height, so the labels line up */
+.filter-bar .filter-check { grid-column: 1 / 3; margin-bottom: 0; }
+.filter-buttons { display: flex; gap: var(--space-1); justify-self: end; }
+
+.results-count { font-weight: 600; margin-bottom: var(--space-2); }
+.no-results {
+  background-color: var(--color-white);
+  border: 1px dashed var(--color-moss);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  text-align: center;
+}
+
+/* -----------------------------------------------------------
+   18. Accordion (FAQ)
+   The panel opens by animating grid-template-rows from 0fr to 1fr.
+   visibility keeps closed answers out of reach of the Tab key.
+----------------------------------------------------------- */
+.accordion-heading { margin: var(--space-1) 0 0; font-size: inherit; }
+
+.accordion-trigger {
+  position: relative;
+  width: 100%;
+  text-align: left;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: var(--space-2) 3.25rem var(--space-2) var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-primary);
+  transition: background-color 0.15s ease;
+}
+.accordion-trigger:hover { background-color: var(--color-bg-alt); }
+.accordion-trigger:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+.accordion-trigger::after {
+  content: "+";
+  position: absolute;
+  right: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.6rem;
+  color: var(--color-accent-dark);
+}
+.accordion-trigger[aria-expanded="true"]::after { content: "\2212"; }
+.accordion-trigger[aria-expanded="true"] { border-bottom-left-radius: 0; border-bottom-right-radius: 0; background-color: var(--color-bg-alt); }
+
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  background-color: var(--color-white);
+  border: 0 solid var(--color-line);
+  border-radius: 0 0 var(--radius) var(--radius);
+  transition: grid-template-rows 0.3s ease, visibility 0s linear 0.3s;
+}
+.accordion-panel.is-open {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  border-width: 0 1px 1px 1px;
+  transition: grid-template-rows 0.3s ease, visibility 0s;
+}
+.accordion-panel > div { overflow: hidden; min-height: 0; }
+.accordion-panel p { margin: var(--space-2) var(--space-3); }
+
+/* -----------------------------------------------------------
+   19. Modal (the animal pop-up, built by js/script.js)
+----------------------------------------------------------- */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3);
+}
+.modal.is-open { display: flex; }
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(23, 35, 25, 0.72);
+  animation: fade-in 0.2s ease;
+}
+.modal-box {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  width: 100%;
+  max-width: 50rem;
+  max-height: 90vh;
+  overflow: auto;
+  background-color: var(--color-white);
+  border-radius: var(--radius);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.5);
+  animation: pop-in 0.25s ease;
+}
+.modal-img { width: 100%; height: 100%; min-height: 16rem; object-fit: cover; background-color: var(--color-bg-alt); }
+.modal-body { padding: var(--space-4) var(--space-3) var(--space-3); }
+.modal-body h2 { margin-bottom: var(--space-1); }
+.modal-body .tag-list { margin-bottom: var(--space-2); }
+.modal-close, .lightbox-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.92);
+  color: var(--color-primary);
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.modal-close:hover, .lightbox-close:hover { background-color: var(--color-accent); }
+.modal-close:focus-visible, .lightbox-close:focus-visible, .lightbox-nav:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pop-in { from { opacity: 0; transform: translateY(14px) scale(0.98); } to { opacity: 1; transform: none; } }
+
+/* -----------------------------------------------------------
+   20. Gallery and lightbox (About page)
+----------------------------------------------------------- */
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-2); }
+
+.gallery-link {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background-color: var(--color-white);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.gallery-link img { width: 100%; height: auto; aspect-ratio: 1 / 1; }
+.gallery-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.gallery-link:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3);
+}
+.lightbox.is-open { display: flex; }
+.lightbox-backdrop { position: absolute; inset: 0; background-color: rgba(15, 24, 17, 0.93); animation: fade-in 0.2s ease; }
+.lightbox-figure {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  max-width: min(90vw, 36rem);
+  text-align: center;
+  color: var(--color-cream-text);
+  animation: pop-in 0.25s ease;
+}
+.lightbox-img { max-height: 68vh; width: auto; max-width: 100%; margin-inline: auto; border-radius: var(--radius); background-color: var(--color-bg-alt); }
+.lightbox-caption { margin-top: var(--space-2); }
+.lightbox-counter { font-size: 0.9rem; opacity: 0.75; margin: 0.25rem 0 0; }
+.lightbox-close { top: 1rem; right: 1rem; }
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  font-size: 2rem;
+  line-height: 1;
+  transition: background-color 0.15s ease;
+}
+.lightbox-nav:hover { background-color: rgba(255, 255, 255, 0.32); }
+.lightbox-prev { left: 1rem; }
+.lightbox-next { right: 1rem; }
+
+/* -----------------------------------------------------------
+   21. Map (Contact page)
+----------------------------------------------------------- */
+.map-layout { display: grid; grid-template-columns: 1.6fr 1fr; gap: var(--space-3); align-items: start; }
+.map {
+  height: 26rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background-color: var(--color-bg-alt);
+  isolation: isolate; /* keeps the map's own layers from covering the menu and pop-ups */
+}
+.map-unavailable { display: grid; place-items: center; padding: var(--space-3); text-align: center; }
+.map-note { font-size: 0.85rem; margin: 0.5rem 0 0; }
+.map-side { display: grid; gap: var(--space-2); }
+.map-side .card { margin-bottom: 0; }
+.map-tools { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+.map-status { min-height: 1.5em; font-weight: 600; margin: 0; }
+.map-popup { line-height: 1.5; }
+.map-popup a { color: var(--color-primary); text-decoration: underline; }
+
+/* -----------------------------------------------------------
+   22. Form feedback: errors, hints and the reply panels
+----------------------------------------------------------- */
+.required { font-weight: 400; font-size: 0.85em; color: #5f5a4c; }
+.field-hint { font-size: 0.85rem; color: #5f5a4c; margin: 0.3rem 0 0; }
+.field-error { color: #9b2c1d; font-size: 0.9rem; font-weight: 600; margin: 0.35rem 0 0; }
+.field-error:empty { display: none; }
+.char-count { text-align: right; }
+
+form input.is-invalid, form select.is-invalid, form textarea.is-invalid { border-color: #b3382a; background-color: #fdf3f1; }
+form input.is-valid, form select.is-valid, form textarea.is-valid { border-color: #5b8a53; }
+
+.form-summary {
+  background-color: #fdf3f1;
+  border: 1px solid #e3b4ac;
+  border-radius: var(--radius);
+  color: #8c2a1c;
+  font-weight: 600;
+  padding: var(--space-2);
+}
+.form-status { color: #8c2a1c; font-weight: 600; margin: var(--space-2) 0 0; }
+.form-status:empty { display: none; }
+.form-note { font-size: 0.85rem; color: #5f5a4c; margin-top: var(--space-2); }
+
+.result-panel {
+  max-width: 40rem;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line);
+  border-left: 6px solid var(--color-accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-4) var(--space-3);
+  animation: pop-in 0.3s ease;
+}
+.result-panel:focus { outline: none; }
+.result-panel .content-list { margin-bottom: var(--space-3); }
+.reference { font-weight: 600; color: var(--color-accent-text); }
+
+.email-details dt { font-weight: 700; }
+.email-details dd { margin: 0 0 var(--space-1); }
+.email-body {
+  white-space: pre-wrap;
+  background-color: var(--color-bg-alt);
+  border-radius: 6px;
+  padding: var(--space-2);
+  margin: var(--space-2) 0;
+  font: inherit;
+  font-size: 0.95rem;
+}
+.copy-status { display: block; min-height: 1.5em; margin-top: var(--space-1); font-weight: 600; }
+
+/* -----------------------------------------------------------
+   23. Reduced motion + Part 3 breakpoints
+----------------------------------------------------------- */
+
+/* People who ask their device for less motion get (almost) no animation */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Tablet: 900px and below */
+@media (max-width: 56.25em) {
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .map-layout { grid-template-columns: 1fr; }
+  .filter-bar { grid-template-columns: 1fr 1fr; }
+  .filter-bar .form-field:first-child { grid-column: 1 / 3; }
+  .filter-bar .filter-check { grid-column: 1 / 2; }
+}
+
+/* Mobile: 600px and below */
+@media (max-width: 37.5em) {
+  /* With JavaScript on: logo and Menu button share a row, and the links open below */
+  .js .site-header .container { flex-direction: row; align-items: center; }
+  .js .nav-toggle { display: inline-block; }
+  .js .primary-nav { display: none; flex-basis: 100%; }
+  .js .primary-nav.is-open { display: block; }
+
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .filter-bar { grid-template-columns: 1fr; }
+  .filter-bar .form-field:first-child, .filter-bar .filter-check { grid-column: auto; }
+  .filter-buttons { justify-self: start; }
+  .map { height: 20rem; }
+
+  .modal { padding: var(--space-2); }
+  .modal-box { grid-template-columns: 1fr; }
+  .modal-img { min-height: 0; height: 14rem; }
+  .lightbox-nav { width: 2.5rem; height: 2.5rem; font-size: 1.6rem; }
+  .lightbox-prev { left: 0.5rem; }
+  .lightbox-next { right: 0.5rem; }
+
+  .accordion-trigger { font-size: 1.1rem; }
 }
